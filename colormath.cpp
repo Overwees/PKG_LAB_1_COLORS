@@ -235,12 +235,12 @@ void colorMath::ConvertFromRGBToXYZ()
     xyz[0] = r * 0.4124 + g * 0.3576 + b * 0.1805;
     xyz[1] = r * 0.2126 + g * 0.7152 + b * 0.0722;
     xyz[2] = r * 0.0193 + g * 0.1192 + b * 0.9505;
-    if (xyz[0] < 0) lab[0] = 0;
-    if (xyz[0] > 95) lab[0] = 95;
-    if (xyz[1]< 0) lab[0] = 0;
-    if (xyz[1]> 100) lab[0] = 100;
-    if (xyz[2]< 0) lab[0] = 0;
-    if (xyz[2]> 108) lab[0] = 108;
+    if (xyz[0] < 0) xyz[0] = 0;
+    if (xyz[0] > 95) xyz[0] = 95.047;
+    if (xyz[1]< 0) xyz[1] = 0;
+    if (xyz[1]> 100) xyz[1] = 100;
+    if (xyz[2]< 0) xyz[2] = 0;
+    if (xyz[2]> 108.883) xyz[2] = 108.883;
 }
 
 void colorMath::ConvertFromXYZToLAB()
